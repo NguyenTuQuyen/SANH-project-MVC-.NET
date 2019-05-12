@@ -1,0 +1,26 @@
+﻿@model _31161021170_OngVuongHoSanh.Models.KM
+
+@{
+    ViewBag.Title = "Chi tiết mã khuyến mãi";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhanTram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanTram)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaKhuyenMai }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

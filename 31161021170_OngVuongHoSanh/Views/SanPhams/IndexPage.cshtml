@@ -1,0 +1,141 @@
+﻿@model PagedList.IPagedList<_31161021170_OngVuongHoSanh.Models.SanPham>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/SanPhamIndexPage.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+}
+@*<style>
+    .sidebar {
+        width: 230px;
+        display: block;
+        float: left;
+        margin-top:0px;
+    }
+</style>*@
+<div class="info-box bg-blue">
+    <span class="info-box-icon"><i class="fa fa-shopping-basket"></i></span>
+
+    <div class="info-box-content">
+        <h2 class="info-box-number">
+            DANH SÁCH SẢN PHẨM
+        </h2>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+        Quản lý danh sách sản phẩm
+    </div>
+    <!-- /.info-box-content -->
+</div>
+
+<div class="box box-info">
+    <div class="box-header with-border">
+        <div class="box-title col-md-12">
+            <div class="col-md-2">
+                <p>
+                    @Html.ActionLink("Thêm mới sản phẩm", "Create", "", new { @class = "btn btn-block btn-success" })
+                </p>
+            </div>
+            <div class="col-md-7">
+                @*Tim kiem*@
+                @using (Html.BeginForm("IndexPage", "SanPhams", FormMethod.Get))
+            {
+                    <div class="col-md-5">
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @placeholder = "Nhập thông tin tìm kiếm", @class = "form-control" })
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Tìm" class="btn btn-info btn-flat" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        @*<div class="product-main">
+            <div class="list-product">*@
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <div class="product">
+                            <a class="product-link" href="@Url.Action("Details", "SanPhams", new { id = item.ID} )">
+                                @{
+                                    if (item.GiaoHangNhanh == true)
+                                    {
+                                        <img class="fast-dev" src="https://pipe.tikicdn.com/desktop/img/2h-circle.png" />
+                                    }
+                                }
+                                <div class="product-img-container">
+                                    <img src="@item.HinhAnhs.First().PicturePath" class="product-img" />
+                                </div>
+                                <div class="product-info">
+                                    <p class="product-name">@item.Ten</p>
+                                    <div class="product-price">
+                                        <p class="price"><span class="span0605"><b>@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.Gia - item.GiamGia) đ</b></span></p>
+                                        <p class="market-price">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.Gia) đ</p>
+                                        <p class="discount-percent">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.GiamGia/item.Gia*100)%</p>
+                                    </div>
+                                    @{
+                                        if (item.TraGop == true)
+                                        {
+                                            <div class="product-tra-gop">
+
+                                                <img src="~/Content/Images/tragop.JPG" />
+                                                <p class="tien-tra-gop">Chỉ @String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.Gia / 50) đ/tháng</p>
+                                            </div>
+                                        }
+                                        if ((item.KMObj.PhanTram != 0))
+                                        {
+                                            <div class="promo">
+                                                <div class="promo-code-box">
+                                                    <p>Nhập mã</p>
+                                                    <p id="promo-code">@item.MaKhuyenMai</p>
+                                                </div>
+                                                <div class="after-promo">
+                                                    <p>Chỉ còn</p>
+                                                    <p id="price-after-promo">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", (item.Gia - item.GiamGia) * (100 - item.KMObj.PhanTram) / 100) đ</p>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="btn-group">
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "btn btn-info fas fa-edit" })
+                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "btn btn-warning fas fa-eye" })
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "btn btn-danger fas fa-trash" })
+                        </div>
+                    </div>
+                </div>
+             </div>
+                                        }
+        @*</div>
+            </div>*@
+    </div>
+<div class="box-footer">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("IndexPage",
+new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+</div>
+
+
+@section Styles {
+<link href="~/Content/NivoSlider/nivo-slider.css" rel="stylesheet" />
+<link href="~/Content/SanPhamIndex.css" rel="stylesheet" />
+}
+
+@section scripts{
+<script src="~/Content/NivoSlider/jquery.nivo.slider.js"></script>
+<script src="~/Content/NivoSlider/jquery.nivo.slider.pack.js"></script>
+<script src="~/Scripts/SanPhamIndexPage.js"></script>
+}
+
+
+
+

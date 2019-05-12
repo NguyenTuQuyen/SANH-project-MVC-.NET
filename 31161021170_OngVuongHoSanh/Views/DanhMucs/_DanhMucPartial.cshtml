@@ -1,0 +1,8 @@
+﻿@using _31161021170_OngVuongHoSanh.Models
+@model IEnumerable<DanhMuc>
+    @foreach (var item in Model)
+    {
+        <li><a href="@Url.Action("Index", "SanPhams", new { id = item.ID })"><i class="fas fa-spa"></i> <span> @item.Name</span></a>
+        </li>
+        
+    }

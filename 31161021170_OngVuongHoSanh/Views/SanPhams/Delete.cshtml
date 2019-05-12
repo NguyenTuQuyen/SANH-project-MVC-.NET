@@ -1,0 +1,108 @@
+﻿@model _31161021170_OngVuongHoSanh.Models.SanPham
+
+@{
+    ViewBag.Title = "Xóa sản phẩm";
+}
+
+<div class="callout callout-danger">
+    <h2>@ViewBag.Title.</h2>
+</div>
+
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h4 class="box-title">Bạn có chắn chắn muốn xóa sản phẩm này ?</h4>
+    </div>
+    <div class="box-body">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DanhMucObj.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DanhMucObj.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.KMObj.MaKhuyenMai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KMObj.MaKhuyenMai)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Ten)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ten)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GiamGia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiamGia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.MoTa)*@
+                @Html.Raw(HttpUtility.HtmlDecode(Model.MoTa))
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MoTaDai)
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.MoTaDai)*@
+                @Html.Raw(HttpUtility.HtmlDecode(Model.MoTaDai))
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GiaoHangNhanh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaoHangNhanh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TraGop)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TraGop)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="box-footer">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Xóa" class="btn btn-danger" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@Html.ActionLink("Quay lại danh sách sản phẩm", "Index")

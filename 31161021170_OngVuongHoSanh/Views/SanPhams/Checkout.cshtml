@@ -1,0 +1,93 @@
+﻿@model _31161021170_OngVuongHoSanh.Models.ShippingDetail
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="info-box bg-red">
+    <span class="info-box-icon"><i class="fa fa-shopping-cart"></i></span>
+
+    <div class="info-box-content">
+        <h2 class="info-box-number">
+            THÔNG TIN ĐẶT HÀNG
+        </h2>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+        Nhập các thông tin chi tiết để hàng được giao đến tay bạn trong thời gian sớm nhất!
+    </div>
+    <!-- /.info-box-content -->
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h4 class="box-title">Nhập các thông tin cần thiết</h4>
+            </div>
+            <div class="box-body">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ví dụ : Ông Vương Hộ Sanh" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ví dụ : 0904125352" } })
+                        @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ví dụ : sanh060598@gmail.com" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ví dụ : TP.HCM" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ReleaseDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.VoucherString, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VoucherString, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ví dụ : MVC" } })
+                        @Html.ValidationMessageFor(model => model.VoucherString, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Đặt hàng" class="btn btn-danger" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

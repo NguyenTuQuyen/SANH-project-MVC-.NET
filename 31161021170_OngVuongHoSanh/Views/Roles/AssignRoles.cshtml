@@ -1,0 +1,71 @@
+﻿
+@model _31161021170_OngVuongHoSanh.Models.AssignRole
+
+
+@{
+    ViewBag.Title = "Phân quyền";
+}
+<div class="callout callout-info">
+    <h2>@ViewBag.Title.</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h4 class="box-title">Phân quyền cho người dùng</h4>
+            </div>
+            <div class="box-body">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.userName,
+        (List<SelectListItem>)ViewBag.ListUser, new { @class = "btn btn-info" })
+                        @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.roleName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.roleName,
+        (List<SelectListItem>)ViewBag.ListRole, new { @class = "btn btn-info" })
+                        @Html.ValidationMessageFor(model => model.roleName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="box-footer">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Cấp quyền" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+@Scripts.Render("~/bundles/jqueryval")
+}
+
+@*<div class="form-horizontal">
+    <div class="box box-success">
+        <div class="box-header with-border">
+            <h4 class="box-title">Tạo mới 1 quyền</h4>
+        </div>
+        <div class="box-body">
+        </div>
+        <div class="box-footer">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Tạo mới quyền" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@

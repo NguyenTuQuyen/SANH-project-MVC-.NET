@@ -1,0 +1,279 @@
+﻿
+@model PagedList.IPagedList<_31161021170_OngVuongHoSanh.Models.SanPham>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/SanPhamIndex.css" rel="stylesheet" />
+
+@{
+ViewBag.Title = "Danh sách sản phẩm";
+}
+
+
+    <section class="content">
+        <div class="row">
+            @*Slidebar*@
+            <div class="col-md-12 setnew">
+                <div class="box box-solid">
+                    @*<div class="box-header with-border">
+                            <h3 class="box-title">Top 5 sản phẩm bán chạy nhất</h3>
+                        </div>*@
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item">
+                                    <img src="~/Content/sliders/bia (20).jpg" alt="First slide">
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="~/Content/sliders/bia (16).jpg" alt="Second slide">
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="~/Content/sliders/bia (19).jpg" alt="Third Slide">
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                                <div class="item active">
+                                    <img src="~/Content/sliders/bia (14).jpg" alt="Fourth Slide">
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="~/Content/sliders/bia (22).jpg" alt="Fifth Slide">
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="fa fa-angle-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="fa fa-angle-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            @*Danh mục nổi bật*@
+            <div class="row">
+                @*Mục1*@
+                <div class="col-lg-4 col-xs-12">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>10</h3>
+                            <p>Laptop - Thiết bị IT</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <a href="~/SanPhams/Index/1" class="small-box-footer">
+                            Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                @*Muc2*@
+                <div class="col-lg-4 col-xs-12">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>10<sup class="sup0605"></sup></h3>
+
+                            <p>Máy ảnh - Máy quay phim</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-book"></i>
+                        </div>
+                        <a href="~/SanPhams/Index/2" class="small-box-footer">
+                            Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                @*Muc3*@
+                <div class="col-lg-4 col-xs-12">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>10</h3>
+
+                            <p>Ô Tô - Xe Máy - Xe Đạp</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-mobile-alt"></i>
+                        </div>
+                        <a href="~/SanPhams/Index/3" class="small-box-footer">
+                            Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <!-- ./col -->
+                @*Mục4
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>0</h3>
+                            <p>Thời Trang</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-adjust"></i>
+                        </div>
+                        <a href="~/SanPhams/Index/4" class="small-box-footer">
+                            Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>*@
+                <!-- ./col -->
+            </div>
+        </div>
+    </section>
+
+
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <div class="box-title col-md-12">
+                @*<div class="col-md-2">
+                        <p>
+                            @Html.ActionLink("Thêm mới sản phẩm", "Create", "", new { @class = "btn btn-block btn-success" })
+                        </p>
+                    </div>*@
+                @*<div class="col-md-3">
+                    Tìm kiếm sản phẩm :
+                </div>*@
+                <div class="col-md-7">
+                    @*Tim kiem*@
+                    @using (Html.BeginForm("Index", "SanPhams", FormMethod.Get))
+                     {
+                        <div class="col-md-5">
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @placeholder = "Nhập thông tin tìm kiếm", @class = "form-control" })
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" value="Tìm kiếm sản phẩm" class="btn btn-info btn-flat" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            @*<div class="product-main">
+                <div class="list-product">*@
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <div class="product">
+                                <a class="product-link" href="@Url.Action("Details", "SanPhams", new { id = item.ID} )">
+                                    @{
+                                        if (item.GiaoHangNhanh == true)
+                                        {
+                                            <img class="fast-dev" src="https://pipe.tikicdn.com/desktop/img/2h-circle.png" />
+                                        }
+                                    }
+                                    <div class="product-img-container">
+                                        <img src="@item.HinhAnhs.First().PicturePath" class="product-img" />
+                                    </div>
+                                    <div class="product-info">
+                                        <p class="product-name">@item.Ten</p>
+                                        <div class="product-price">
+                                            <p class="price"><span class="span0605"><b>@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.Gia - item.GiamGia) đ</b></span></p>
+                                            <p class="market-price">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.Gia) đ</p>
+                                            <p class="discount-percent">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.GiamGia / item.Gia * 100)%</p>
+                                        </div>
+                                        @{
+                                            if (item.TraGop == true)
+                                            {
+                                                <div class="product-tra-gop">
+
+                                                    <img src="~/Content/Images/tragop.JPG" />
+                                                    <p class="tien-tra-gop">Chỉ @String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.Gia / 50) đ/tháng</p>
+                                                </div>
+                                            }
+                                            if ((item.KMObj.PhanTram!=0))
+                                            {
+                                                <div class="promo">
+                                                    <div class="promo-code-box">
+                                                        <p>Nhập mã</p>
+                                                        <p id="promo-code">@item.MaKhuyenMai</p>
+                                                    </div>
+                                                    <div class="after-promo">
+                                                        <p>Chỉ còn</p>
+                                                        <p id="price-after-promo">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", (item.Gia - item.GiamGia) * (100 - item.KMObj.PhanTram) / 100) đ</p>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        @*<div class="box-body">
+                                <div class="btn-group">
+                                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "btn btn-info fas fa-edit" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "btn btn-warning fas fa-eye" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "btn btn-danger fas fa-trash" })
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+                }
+            @*</div>
+                </div>*@
+        </div>
+        <div class="box-footer">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+            @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+        @*<div class="box-footer">
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+            </div>*@
+    </div>
+
+
+    @section Styles {
+        <link href="~/Content/NivoSlider/nivo-slider.css" rel="stylesheet" />
+        <link href="~/Content/SanPhamIndex.css" rel="stylesheet" />
+    }
+
+    @section scripts{
+        <script src="~/Content/NivoSlider/jquery.nivo.slider.js"></script>
+        <script src="~/Content/NivoSlider/jquery.nivo.slider.pack.js"></script>
+        <script type="text/javascript">
+            $(window).on('load', function () {
+                $('#slider').nivoSlider({
+                    controlNav: false,
+                    nextText: '',
+                    prevText: ''
+                });
+            });
+        </script>
+    }
+
+
+
+

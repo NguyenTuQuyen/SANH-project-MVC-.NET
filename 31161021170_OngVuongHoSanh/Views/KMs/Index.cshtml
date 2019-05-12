@@ -1,0 +1,110 @@
+﻿@model IEnumerable<_31161021170_OngVuongHoSanh.Models.KM>
+
+@{
+    ViewBag.Title = "Danh sách mã khuyến mãi";
+}
+<link href="~/Content/KMIndex.css" rel="stylesheet" />
+
+<div class="info-box bg-green">
+    <span class="info-box-icon"><i class="fas fa-money-check-alt"></i></span>
+
+    <div class="info-box-content">
+        <h2 class="info-box-number">
+            DANH SÁCH MÃ KHUYẾN MÃI
+        </h2>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+        Quản lý danh sách mã khuyến mãi
+    </div>
+    <!-- /.info-box-content -->
+</div>
+
+<div class="box box-success">
+    <div class="box-header with-border">
+        <div class="box-title col-md-12">
+            <div class="col-md-3">
+                @Html.ActionLink("Tạo mới mã khuyến mãi", "Create", "", new { @class = "btn btn-block btn-success" })
+            </div>
+            <div class="col-md-7">
+                @*Tim kiem*@
+                @using (Html.BeginForm("Index", "KMs", FormMethod.Get))
+            {
+                    <div class="col-md-5">
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @placeholder = "Nhập thông tin tìm kiếm", @class = "form-control" })
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Tìm" class="btn btn-warning btn-flat" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- /.box-header -->
+
+    <div class="box-body">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="box box-success box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">@Html.DisplayFor(modelItem => item.MaKhuyenMai)</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-10">
+<p>Mã này được giảm <span class="span0605"><b>@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", item.PhanTram)  %</b></span> trên giá sản phẩm</p>
+                                    @*@Html.DisplayFor(modelItem => item.PhanTram)*@
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <div class="btn-group">
+                                @Html.ActionLink(" ", "Edit", new { id = item.MaKhuyenMai }, new { @class = "btn btn-info fas fa-edit" })
+                                @*@Html.ActionLink(" ", "Details", new { id = item.MaKhuyenMai }, new { @class = "btn btn-warning fas fa-eye" })*@
+                                @Html.ActionLink(" ", "Delete", new { id = item.MaKhuyenMai }, new { @class = "btn btn-danger fas fa-trash" })
+                            </div>
+                        </div>
+                        <!-- /.box-footer -->
+                    </form>
+                </div>
+            </div>
+            }
+    </div>
+</div>
+
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PhanTram)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhanTram)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaKhuyenMai }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaKhuyenMai }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaKhuyenMai })
+                </td>
+            </tr>
+        }
+
+    </table>*@

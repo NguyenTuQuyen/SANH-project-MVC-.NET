@@ -1,0 +1,113 @@
+﻿@model _31161021170_OngVuongHoSanh.Models.Receipt
+
+@{
+    ViewBag.Title = "AddToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="info-box bg-red">
+    <span class="info-box-icon"><i class="fa fa-shopping-cart"></i></span>
+
+    <div class="info-box-content">
+        <h2 class="info-box-number">
+            GIỎ HÀNG CỦA BẠN
+        </h2>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+        Mua ngay các sản phẩm trong giỏ để hưởng các khuyến mãi mới nhất!
+    </div>
+    <!-- /.info-box-content -->
+</div>
+@*bang*@
+<div class="box box-danger">
+    <div class="box-header">
+        <h3 class="box-title">Chi tiết giỏ hàng</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body no-padding">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="0605">Số lượng</th>
+                    <th>Sản phẩm</th>
+                    <th class="text-right">Đơn Giá</th>
+                    <th class="text-right">Giảm giá</th>
+                    <th class="text-right">Thành tiền</th>
+                    @*<th class="text-right" style="width: 150px">Mã khuyến mãi</th>*@
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+                <tbody>                    
+                        @foreach (var hoaDonChiTiet in Model.ReceiptDetails)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.ActionLink("+", "PlusFromCart",
+                                   new { iD = hoaDonChiTiet.SanPhamID }, new { @class = "btn btn-sm btn-primary" })
+                                    @hoaDonChiTiet.Total
+                                    @Html.ActionLink("-", "MinusFromCart",
+                                   new { iD = hoaDonChiTiet.SanPhamID }, new { @class = "btn btn-sm btn-danger" })
+                                </td>
+                                <td class="text-left">@Html.ActionLink(@hoaDonChiTiet.SanPhamObj.Ten.ToString(),"Details","SanPhams",new { id = @hoaDonChiTiet.SanPhamObj.ID.ToString() },null)</td>
+                                <td class="text-right">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", hoaDonChiTiet.SanPhamObj.Gia)</td>
+                                <td class="text-right">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", hoaDonChiTiet.SanPhamObj.GiamGia)</td>
+                                <td class="text-right"><b>
+                                @String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", (hoaDonChiTiet.Total * (hoaDonChiTiet.SanPhamObj.Gia - hoaDonChiTiet.SanPhamObj.GiamGia)))
+                                </b></td>
+                                <td>
+                                    @Html.ActionLink("Xóa", "RemoveFromCart",
+                    new { id = hoaDonChiTiet.SanPhamID }, new { @class = "btn btn-sm btn-warning" })
+                                </td>
+                            </tr>
+                        }           
+                </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-right">Tổng tiền :</td>
+                    <td class="text-right0605">
+                    <b>
+                    @String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", Model.TotalCost)
+                    </b>
+                    </td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+@*end*@
+
+<div class="text-center">
+    @Html.ActionLink("Tiếp tục mua sắm", "Index", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Thanh toán ngay", "Checkout", null, new { @class = "btn btn-danger" })
+</div>
+@*<td>2.</td>
+<td>Clean database</td>
+<td>
+    <div class="progress progress-xs">
+        <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+    </div>
+</td>
+<td><span class="badge bg-yellow">70%</span></td>
+                </tr>
+<tr>
+    <td>3.</td>
+    <td>Cron job running</td>
+    <td>
+        <div class="progress progress-xs progress-striped active">
+            <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+        </div>
+    </td>
+    <td><span class="badge bg-light-blue">50%</span></td>
+</tr>
+<tr>
+    <td>4.</td>
+    <td>Fix and squish bugs</td>
+    <td>
+        <div class="progress progress-xs progress-striped active">
+            <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+        </div>
+    </td>
+    <td><span class="badge bg-green">90%</span></td>
+</tr>*@

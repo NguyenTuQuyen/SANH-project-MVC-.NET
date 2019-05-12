@@ -1,0 +1,37 @@
+﻿@{
+    //ViewBag.Title = "CheckoutCompleted";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Đặt hàng thành công! ";
+}
+<div class="info-box bg-red">
+    <span class="info-box-icon"><i class="fa fa-shopping-cart"></i></span>
+
+    <div class="info-box-content">
+        <h2 class="info-box-number">
+            THÔNG TIN ĐẶT HÀNG
+        </h2>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+        Xác nhận đặt hàng thành công
+    </div>
+    <!-- /.info-box-content -->
+</div>
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h4 class="box-title">Đặt hàng thành công</h4>
+    </div>
+    <div class="box-body">
+        <h2>Cảm ơn bạn rất nhiều!</h2>
+        Cảm ơn đơn đặt hàng của bạn. Chúng tôi sẽ giao hàng trong thời gian sớm nhất!
+        Trong khi chờ đợi hãy mua thêm các sản phẩm khác nữa nhé.
+    </div>
+    <div class="box-footer">
+        @Html.ActionLink("Tiếp tục mua sắm", "Index", null, new { @class = "btn btn-success" })
+    </div>
+</div>
+
+

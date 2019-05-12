@@ -1,0 +1,159 @@
+﻿.b0605 {
+    color: red
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.product-summary {
+    margin-bottom: 25px;
+    overflow: auto;
+}
+
+.product-image {
+    border-right: 2px solid #f7f7f7;
+    width: 527px;
+    padding: 24px 24px 20px 20px;
+    float: left;
+}
+
+.feature-img-container {
+    width: 13%;
+    height: 420px;
+    float: left;
+}
+
+.img-choose {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.img-choose img {
+    width: 100%;
+}
+
+.big-img-container {
+    width: 85%;
+    float: right;
+}
+
+.big-img-container img {
+    width: 100%;
+}
+
+.product-cart {
+    width: 100%;
+    float: right;
+    padding: 0 24px;
+}
+
+.product-name {
+    border-bottom: 2px solid #f7f7f7;
+}
+
+.product-info {
+    padding-top: 10px;
+}
+
+.product-price {
+    font-weight: 500;
+    font-size: 19px;
+    color: red;
+}
+
+.tra-gop img {
+    height: 15px;
+    display: inline;
+}
+
+.tra-gop p {
+    display: inline;
+}
+
+.product-saving {
+    font-size: 13px;
+}
+
+.promo {
+    width: 100%;
+}
+
+.promo-code-box {
+    width: 45%;
+    display: inline-block;
+}
+
+    .promo-code-box > p:first-child {
+        font-size: 11px;
+    }
+
+#promo-code {
+    background-color: #037Ef3;
+    padding: 4px 8px;
+    display: inline;
+    color: white;
+}
+
+.after-promo {
+    width: 45%;
+    display: inline-block;
+}
+
+.after-promo > p:first-child {
+    font-size: 11px;
+}
+
+#price-after-promo {
+    color: red;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.cart-session {
+    display: flex;
+}
+
+.quantity {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.quantity p {
+    font-size: 11px;
+}
+
+.quan {
+    width: 28px;
+    height: 28px;
+    border: 1px solid lightgray;
+    text-align: center;
+    color: gray;
+}
+
+.minus, .plus {
+    cursor: pointer;
+}
+
+.cta {
+    padding: 4px 0px;
+}
+
+.btn {
+    padding: 12px 38px;
+    color: #ffffff;
+    background-color: #f74242;
+    border-color: #a72828;
+}
+
+.product-long-desc {
+    padding: 24px;
+}
+
+.long-desc {
+    padding: 20px;
+}
+
+

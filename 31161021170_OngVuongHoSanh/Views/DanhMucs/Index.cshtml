@@ -1,0 +1,101 @@
+﻿@model PagedList.IPagedList<_31161021170_OngVuongHoSanh.Models.DanhMuc>
+@*@model IEnumerable<_31161021170_OngVuongHoSanh.Models.DanhMuc>*@
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/DanhMucIndex.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Danh sách danh mục";
+}
+
+<div class="info-box bg-yellow">
+    <span class="info-box-icon"><i class="fa fa-tags"></i></span>
+
+    <div class="info-box-content">
+        <h2 class="info-box-number">
+            DANH SÁCH DANH MỤC
+        </h2>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>        
+            Quản lý danh sách danh mục ngành hàng
+    </div>
+    <!-- /.info-box-content -->
+</div>
+
+<div class="box box-warning">
+    <div class="box-header with-border">
+        <div class="box-title col-md-12">
+            <div class="col-md-2">
+         @Html.ActionLink("Tạo mới danh mục", "Create","",new {@class= "btn btn-block btn-success" })
+            </div>
+            <div class="col-md-7">
+            @*Tim kiem*@
+            @using (Html.BeginForm("Index", "DanhMucs", FormMethod.Get))
+            {
+                <div class="col-md-5">
+                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @placeholder = "Nhập thông tin tìm kiếm", @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                <input type="submit" value="Tìm" class="btn btn-warning btn-flat" />
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    
+    <div class="box-body">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="box box-warning box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    @{
+                                        string mota = Server.HtmlDecode(item.MoTa);
+                                    }
+                                    @Html.Raw(mota)
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <div class="btn-group">
+                                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "btn btn-info fas fa-edit" })
+                                @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "btn btn-warning fas fa-eye" })
+                                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "btn btn-danger fas fa-trash" })
+                                @Html.ActionLink(" ","IndexPage","SanPhams", new { id = item.ID }, new { @class = "btn btn-success fas fa-table" })
+                            </div>
+                        </div>
+                        <!-- /.box-footer -->
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="box-body">
+        <h4 class="col-md-12">
+          <b>Hướng dẫn : </b> Dùng nút <button class="btn btn-success fas fa-table"></button> để đến trang quản lý sản phẩm thuộc danh mục
+        </h4>
+    </div>
+    <div class="box-footer">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+</div>
+
+

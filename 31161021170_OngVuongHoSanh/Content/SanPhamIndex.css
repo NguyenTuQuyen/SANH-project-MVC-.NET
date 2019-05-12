@@ -1,0 +1,140 @@
+﻿.span0605 {
+    color: red
+}
+
+.sup0605 {
+    font-size: 20px
+}
+
+.product-main {
+    width: 985px;
+    float: right;
+    display: block;
+}
+.product {
+    width: 100%;
+    float: left;
+    margin-bottom: 12px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 450px;
+    position: relative;
+}
+
+.product:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+
+a.product-link  {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.product-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.product-link:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.fast-dev {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.product-img-container {
+    margin-bottom: 20px;
+}
+
+.product-img {
+    width: 100%;
+}
+
+.product-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.price {
+    display: inline-block;
+    margin-right: 3px;
+    font-weight: 500;
+}
+
+.market-price {
+    display: inline-block;
+    font-size: 11px;
+    text-decoration: line-through;
+    color: #ababab;
+    margin-right: 3px;
+}
+
+.discount-percent {
+    color: orangered;
+    display: inline-block;
+}
+
+.product-tra-gop img {
+    display: inline-block;
+    margin-right: 3px;
+    height: 15px;
+}
+
+.tien-tra-gop {
+    font-size: 11px;
+    display: inline-block;
+    color: #ababab;
+}
+
+.promo {
+    width: 100%;
+}
+
+.promo-code-box {
+    width: 45%;
+    display: inline-block;
+}
+
+.promo-code-box > p:first-child {
+    font-size: 11px;
+}
+
+#promo-code {
+    background-color: #037Ef3;
+    padding: 4px 8px;
+    display: inline;
+    color: white;
+}
+
+.after-promo {
+    width: 45%;
+    display: inline-block;
+}
+
+.after-promo > p:first-child {
+    font-size: 11px;
+}
+
+#price-after-promo {
+    color: orangered;
+    font-size: 15px;
+    font-weight: bold;
+}
+.content {
+    padding-top: 8px;
+}
+
+.setnew {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+

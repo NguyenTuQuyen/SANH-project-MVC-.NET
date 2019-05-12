@@ -1,0 +1,48 @@
+﻿@model _31161021170_OngVuongHoSanh.Models.KM
+
+@{
+    ViewBag.Title = "Xóa mã khuyến mãi";
+}
+<div class="callout callout-danger">
+    <h2>@ViewBag.Title.</h2>
+</div>
+
+<div class="box box-danger">
+    <div class="box-header with-border">
+        <h4 class="box-title">Bạn có chắn chắn muốn xóa mã khuyến mãi này ?</h4>
+    </div>
+    <div class="box-body">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaKhuyenMai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaKhuyenMai)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhanTram)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhanTram)
+            </dd>
+        </dl>
+    </div>
+    <div class="box-footer">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Xóa" class="btn btn-danger" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@Html.ActionLink("Quay lại danh sách danh mã", "Index")

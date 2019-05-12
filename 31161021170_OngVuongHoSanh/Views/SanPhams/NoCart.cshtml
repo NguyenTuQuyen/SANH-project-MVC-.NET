@@ -1,0 +1,46 @@
+﻿
+@*<div class="navbar-right">
+        @Html.ActionLink("Thanh toán", "Checkout", null,
+            new { @class = "btn btn-default navbar-btn" })
+    </div>
+    <div class="navbar-text navbar-right">
+        <b>Giỏ hàng:</b>
+        @Model.ReceiptDetails.Sum(x => x.Total) sản phẩm,
+        @String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", Model.TotalCost)
+    </div>*@
+<link href="~/Content/SanPhamNoCart.css" rel="stylesheet" />
+<li class="dropdown messages-menu">
+    <!-- Menu toggle button -->
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Giỏ hàng
+        <i class="fas fa-shopping-cart"></i>
+        <span class="label label-danger">0</span>
+    </a>
+    <ul class="dropdown-menu">
+        <li class="header">Giỏ hàng của bạn có <b class="b0605">0</b> sản phẩm </li>
+        <li>
+            <!-- inner menu: contains the messages -->
+            <ul class="menu">
+                <li>
+                    <!-- start message -->
+                    <a href="@Url.Action("Index", "SanPhams", null)">
+                        <div class="pull-left">
+                            <!-- User Image -->
+                            <img src="~/Content/Images/ava.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <!-- Message title and timestamp -->
+                        <h4>
+                            Thêm hàng vào giỏ ngay nào !
+                            <small><i class="fas fa-shopping-cart"></i></small>
+                        </h4>
+                        <!-- The message -->
+                        <p>Tổng tiền : 0 đ</b></p>
+                    </a>
+                </li>
+                <!-- end message -->
+            </ul>
+            <!-- /.menu -->
+        </li>
+        @*<li class="footer"><a href="@Url.Action("AddToCart","SanPhams",1)">Xem tất cả sản phẩm trong giỏ</a></li>*@
+    </ul>
+</li>

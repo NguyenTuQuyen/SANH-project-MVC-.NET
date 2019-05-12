@@ -1,0 +1,142 @@
+﻿@model _31161021170_OngVuongHoSanh.Models.SanPham
+@using System.Globalization
+
+@{
+    /**/
+
+    ViewBag.Title = "Chi tiết sản phẩm";
+}
+<div class="callout callout-info">
+    <h2>@ViewBag.Title.</h2>
+</div>
+
+<div class="box box-info">
+    @*<div class="box-header with-border">
+            <h4 class="box-title">Chi tiết sản phẩm</h4>
+        </div>*@
+    <div class="box-body">
+        <div class="product-summary">
+            <div class="col-md-6">
+                <div class="product-image">
+                    <div class="feature-img-container">
+                        @{ int i = 0; }
+                        @foreach (var img in Model.HinhAnhs)
+                        {
+                            <div class="img-choose" onclick="changeBorder(@i)">
+                                <img src="@img.PicturePath" onclick="document.getElementById('big-img').src = this.src" />
+                            </div>
+                            i++;
+                        }
+                    </div>
+
+                    <div class="big-img-container">
+                        <img id="big-img" src="@Model.HinhAnhs.First().PicturePath" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-cart">
+                    <div class="product-name">
+                        <h2>@Model.Ten</h2>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-price">@String.Format(new CultureInfo("es-ES"), "{0:0,0}", Model.Gia - Model.GiamGia) đ</p>
+                        @if (Model.TraGop == true)
+                        {
+                            <div class="tra-gop">
+
+                                <img src="~/Content/Images/tragop.JPG" />
+                                <p>Chỉ <b class="b0605">@String.Format(new CultureInfo("es-ES"), "{0:0,0}", (Model.Gia - Model.GiamGia) / 12) đ</b> mỗi tháng </p>
+                            </div>
+                        }
+                        <p class="product-saving">Tiết kiệm: <b class="b0605" >@String.Format(new CultureInfo("es-ES"), "{0:0,0}", (Model.GiamGia / Model.Gia) * 100) %</b> (@String.Format(new CultureInfo("es-ES"), "{0:0,0}", Model.GiamGia) đ)</p>
+                        <p class="product-saving">Giá thị trường : @String.Format(new CultureInfo("es-ES"), "{0:0,0}", Model.Gia) đ</p>
+                        @if ((Model.KMObj.PhanTram != 0))
+                        {
+                            <div class="promo">
+                                <div class="promo-code-box">
+                                    <p>Nhập mã</p>
+                                    <p id="promo-code">@Model.MaKhuyenMai</p>
+                                </div>
+                                <div class="after-promo">
+                                    <p>Chỉ còn</p>
+                                    <p id="price-after-promo">@String.Format(new System.Globalization.CultureInfo("es-ES"), "{0:0,0}", (Model.Gia - Model.GiamGia) * (100 - Model.KMObj.PhanTram) / 100) đ</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <hr />
+                    <div class="product-short-desc">
+                        @Html.Raw(HttpUtility.HtmlDecode(Model.MoTa))
+                    </div>
+                    <hr />
+                    @*nutmua*@
+                    <div class="cart-session">
+                        <div class="quantity">
+                            <p>Số lượng</p>
+                            <input class="quan minus" value="-" onclick="minus()" readonly />
+                            <!--
+                            -->
+                            @Html.TextBox("soluong", 1, new { @class = "quan", @readonly = "readonly" })
+                            <!--
+                            -->
+                            <input class="quan plus" value="+" onclick="plus()" readonly />
+                        </div>
+                        <div class="cta">
+                            <p>
+                                @Html.ActionLink("Thêm vào giỏ hàng", "AddToCart", new { id = Model.ID }, new { @class = "btn btn-danger" })
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="box box-info box-solid">
+                <div class="box-body">
+                    @*<div class="product-long-desc">*@
+                    <div class="long-desc">
+                        <h2>MÔ TẢ SẢN PHẨM</h2>
+                        @Html.Raw(HttpUtility.HtmlDecode(Model.MoTaDai))
+                    </div>
+                    @*</div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles {
+    <link href="~/Content/SanPhamDetails.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script type="text/javascript">
+        function minus() {
+            if (document.getElementById("soluong").value > 1) {
+                document.getElementById("soluong").value = parseInt(document.getElementById("soluong").value) - 1;
+            }
+            tinhtien();
+        }
+
+        function plus() {
+            document.getElementById("soluong").value = parseInt(document.getElementById("soluong").value) + 1;
+            tinhtien();
+        }
+
+        var i;
+        function changeBorder(i) {
+            var list = document.querySelectorAll('.feature-img-container > .img-choose');
+            for (var j = 0; j < list.length; j++) {
+                list[j].style.borderColor = "lightgray";
+            }
+            list[i].style.borderColor = "#189EFF";
+        }
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.getElementsByClassName("img-choose")[0].style.borderColor = "#189EFF";
+        });
+    </script>
+}
+
+

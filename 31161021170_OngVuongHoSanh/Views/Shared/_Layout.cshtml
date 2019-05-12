@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <title>@ViewBag.Title - Hộ Sanh MVC</title>
+    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/NivoSlider")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/brands.css" integrity="sha384-Px1uYmw7+bCkOsNAiAV5nxGKJ0Ixn5nChyW8lCK1Li1ic9nbO5pC/iXaq27X5ENt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+    <link href="~/Content/Layout.css" rel="stylesheet" />
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <header class="main-header">
+
+            <!-- Logo -->
+            <a href="~/SanPhams/Index" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>M</b>VC</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Hộ Sanh </b>EC001</span>
+            </a>
+
+            <!-- Header Navbar -->
+            <nav id="mot" class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+
+                @*Ghi ho ten*@
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- The user image in the navbar-->
+
+                                <img src="~/Content/Images/ava.jpg" class="user-image" alt="User Image">
+
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs">EC001 - K42 - 31161021170 - Ông Vương Hộ Sanh </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img src="~/Content/Images/ava.jpg" class="img-circle" alt="User Image">
+
+                                <p>
+                                    Ông Vương Hộ Sanh - EC001
+                                    <small>06/05/1998</small>
+                                </p>
+                            </li>
+                        </ul>
+                </ul>
+                @*Nhớ ghi họ tên*@
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    @*<ul class="nav navbar-nav">
+                    <li class="leftinfo">EC001 - K42 - 31161021170 - Ông Vương Hộ Sanh </li>
+                </ul>*@
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        @Html.Action("Summary", "SanPhams")
+                        <!-- /.messages-menu -->
+                        @*<!-- Notifications Menu -->
+                    <li class="dropdown notifications-menu">
+                        <!-- Menu toggle button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="label label-warning">10</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 10 notifications</li>
+                            <li>
+                                <!-- Inner Menu: contains the notifications -->
+                                <ul class="menu">
+                                    <li>
+                                        <!-- start notification -->
+                                        <a href="#">
+                                            <i class="fas fa-users text-aqua"></i> 5 new members joined today
+                                        </a>
+                                    </li>
+                                    <!-- end notification -->
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">View all</a></li>
+                        </ul>
+                    </li>*@
+                        <!-- Tasks Menu -->
+                        @*<li class="dropdown tasks-menu">
+                    <!-- Menu Toggle Button -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fas fa-flag"></i>
+                        <span class="label label-danger">9</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">You have 9 tasks</li>
+                        <li>
+                            <!-- Inner menu: contains the tasks -->
+                            <ul class="menu">
+                                <li>
+                                    <!-- Task item -->
+                                    <a href="#">
+                                        <!-- Task title and progress text -->
+                                        <h3>
+                                            Design some buttons
+                                            <small class="pull-right">20%</small>
+                                        </h3>
+                                        <!-- The progress bar -->
+                                        <div class="progress xs">
+                                            <!-- Change the css width attribute to simulate progress -->
+                                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">20% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- end task item -->
+                            </ul>
+                        </li>*@
+                        @*<li class="footer">
+                        <a href="#">View all tasks</a>
+                    </li>*@
+                        @*</ul>*@
+                        @*</li>*@
+                        <!-- User Account Menu -->
+                        <li>
+                            @Html.Partial("_LoginPartial")
+                        </li>
+                        @*<li class="dropdown user user-menu">
+                    <!-- Menu Toggle Button -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <!-- The user image in the navbar-->
+                        <img src="~/Content/Admin-lte/img/ava.jpg" class="user-image" alt="User Image">
+                        <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                        <span class="hidden-xs">Ong Vuong Ho Sanh</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- The user image in the menu -->
+                        <li class="user-header">
+                            <img src="~/Content/Admin-lte/img/ava.jpg" class="img-circle" alt="User Image">
+
+                            <p>
+                                Ong Vuong Ho Sanh - 31161021170 - K42 - UEH
+                                <small>Member since Aug 2016</small>
+                            </p>
+                        </li>*@
+                        <!-- Menu Body -->
+                        @*<li class="user-body">
+                                <div class="row">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Followers</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Sales</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Friends</a>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>*@
+                        <!-- Control Sidebar Toggle Button -->
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fas fa-gears"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar" >
+
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/Content/Images/ava.jpg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>Ông Vương Hộ Sanh</p>
+                        <!-- Status -->
+                        <a href="http://facebook.com/vuongsanh98"><i class="fab fa-facebook-square text-info"></i> Liên hệ hỗ trợ </a>
+                    </div>
+                </div>
+
+                <!-- search form (Optional) -->
+                <form action="" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="searchstring" class="form-control" placeholder="Tìm kiếm...">
+                        <span class="input-group-btn">
+                            <button type="submit" @*name="searchstring" id="search-btn"*@ class="btn btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- Sidebar Menu -->
+                @*Tim kiem*@
+                <ul class="sidebar-menu" data-widget="tree">
+
+                    <!-- Optionally, you can add icons to the links -->
+                    <li class="active"><a href="~/SanPhams/Index"><i class="fas fa-store"></i> <span> Trang chủ</span></a></li>
+                    <li class="header">DANH MỤC SẢN PHẨM</li>
+                    @Html.Action("DanhMuc", "DanhMucs")
+
+                     @*@<li class="#"><a href="#"><i class="fas fa-heart"></i> <span> Làm đẹp - sức khỏe</span></a></li>
+                        <li><a href="#"><i class="fas fa-book"></i> <span> Sách-VPP</span></a></li>
+                        <li><a href="#"><i class="fas fa-tshirt"></i> <span> Thời trang-phụ kiện</span></a></li>
+                        <li><a href="#"><i class="fas fa-tv"></i> <span>Nhà cửa - đời sống</span></a></li>
+                        <li><a href="#"><i class="fas fa-utensils"></i> <span>Hàng tiêu dùng - Thực phẩm</span></a></li>*@
+                </ul>
+                <!-- /.sidebar-menu -->
+                @*Danh mục chức năng*@
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">CHỨC NĂNG</li>
+                    <!-- Optionally, you can add icons to the links -->
+                    <li><a href="~/SanPhams/IndexPage"><i class="fas fa-shopping-basket"></i> <span>Quản lý sản phẩm</span></a></li>
+                    <li><a href="~/DanhMucs/Index"><i class="fas fa-tags"></i> <span>Quản lý danh mục</span></a></li>
+                    <li><a href="~/KMs/Index"><i class="fas fa-money-check-alt"></i> <span>Quản lý khuyến mãi</span></a></li>
+                    @*<li><a href="~/Roles"><i class="fas fa-user-shield"></i> <span>Quyền quản trị</span></a></li>*@
+                    <li><a href="~/QuayXoSo"><i class="fas fa-donate"></i> <span>Quay xổ số</span></a></li>
+
+
+                    @*<li class="treeview">
+                            <a href="#">
+                                <i class="fas fa-hammer"></i> <span>Chức năng</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="~/Roles/Create">Phòng chat</a></li>
+                                <li><a href="~/Roles/AssignRole">Thống kê</a></li>
+                            </ul>
+                        </li>*@
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            @*<section class="content-header">
+                    <h1>
+                        Page Header
+                        <small>Optional description</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+                        <li class="active">Here</li>
+                    </ol>
+                </section>*@
+            <!-- Main content -->
+            <section class="content container-fluid">
+
+                <!--------------------------
+                | Your Page Content Here |
+                -------------------------->
+                @RenderBody()
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="pull-right hidden-xs">
+                
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2019 <a href="http://facbook.com/vuongsanh98">Ông Vương Hộ Sanh</a>.</strong> EC001 - K42.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane active" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">Giới thiệu</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="http://facebook.com/vuongsanh98">
+                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Ông Vương Hộ Sanh</h4>
+
+                                    <p>06/05/1998</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                    <h3 class="control-sidebar-heading">EC001-K42-UEH</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:;">
+                                <h4 class="control-sidebar-subheading">
+                                    MVC Project - PTUDTMĐT - EC001
+                                    <span class="pull-right-container">
+                                        <span class="label label-danger pull-right">90%</span>
+                                    </span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div id="hai" class="progress-bar progress-bar-danger"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane" id="control-sidebar-stats-tab">Thông tin</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">Ông Vương Hộ Sanh</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                MVC Project
+
+                            </label>
+
+                            <p>
+                                Xây dựng trang web bán hàng.
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Styles", required: false)
+    @RenderSection("scripts", required: false)
+</body>
+</html>

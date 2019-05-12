@@ -1,0 +1,32 @@
+﻿html {
+    height: auto;
+    min-height: 100%
+}
+
+.sidebar-mini {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.leftinfo {
+    float: left;
+    text-align: left;
+    text-decoration-color: white;
+}
+
+.logo {
+    background-color: #FF4DEDba;
+}
+
+#mot {
+    background-color: #FF4DEDba;
+}
+
+.main-sidebar {
+    background-color: #FF4DED30;
+}
+
+#hai {
+    width: 90%
+}
+
